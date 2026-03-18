@@ -29,6 +29,17 @@ function Contact() {
             </a>
           ))}
         </div>
+
+        <div className="mt-6">
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex rounded-full border border-accent/30 bg-accent/10 px-5 py-3 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:border-accent/60 hover:bg-accent/20"
+          >
+            View Resume
+          </a>
+        </div>
       </div>
     </section>
   );

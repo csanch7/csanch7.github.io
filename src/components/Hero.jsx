@@ -33,6 +33,14 @@ function Hero() {
               View Projects
             </a>
             <a
+              href={profile.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-accent/30 bg-accent/10 px-6 py-3 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:border-accent/60 hover:bg-accent/20"
+            >
+              View Resume
+            </a>
+            <a
               href="#contact"
               className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:border-accent/50 hover:bg-accent/10"
             >

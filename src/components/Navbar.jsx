@@ -3,7 +3,6 @@ const navItems = [
   ["Projects", "#projects"],
   ["Experience", "#experience"],
   ["Skills", "#skills"],
-  ["Contact", "#contact"],
 ];
 
 function Navbar() {
