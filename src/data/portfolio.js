@@ -65,21 +65,35 @@ export const projects = [
 
 export const experience = [
   {
+    year: "2025",
     company: "Vikings Ventures",
-    outcome: "$40K+ revenue",
-    highlights: [
-      "Built a Shopify storefront tailored for conversion and operations.",
-      "Automated 700+ orders with Node.js workflows.",
-      "Integrated analytics across 17K+ sessions to guide decisions.",
-    ],
+    role: "Software Engineering Intern",
+    range: "May 2025 - January 2026",
+    summary:
+      "Developed and deployed a Shopify storefront with automation and analytics workflows that connected operations, fulfillment, and customer behavior into a more scalable system.",
+    metrics:
+      "$40K+ revenue generated, 700+ orders automated, and 17K+ tracked sessions.",
+    tags: ["Shopify", "Node.js", "MongoDB", "JavaScript", "Analytics"],
   },
   {
+    year: "2025",
     company: "Reliable Contracting Equipment Company",
-    outcome: "$636K+ revenue",
-    highlights: [
-      "Built a Django intake system to streamline lead capture.",
-      "Increased conversion rate by 15% with improved lead flow.",
-      "Improved performance with 45% faster load time.",
+    role: "Software Engineering Intern",
+    range: "October 2025 - December 2025",
+    summary:
+      "Built a Django intake system for Chicago's lead service replacement program with validation and workflow automation focused on conversion, speed, and operational clarity.",
+    metrics:
+      "$636K+ contracted revenue from 53 signups, 15% higher conversion, and 45% faster load time.",
+    tags: ["Django", "Python", "JavaScript", "Google Sheets API", "Bootstrap"],
+  },
+];
+
+export const experienceYears = [
+  {
+    year: "2025",
+    items: [
+      "Vikings Ventures",
+      "Reliable Contracting Equipment Company",
     ],
   },
 ];

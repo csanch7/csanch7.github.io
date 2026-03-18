@@ -3,6 +3,7 @@ const navItems = [
   ["Projects", "#projects"],
   ["Experience", "#experience"],
   ["Skills", "#skills"],
+  ["Beyond Code", "#creative"],
 ];
 
 function Navbar() {
