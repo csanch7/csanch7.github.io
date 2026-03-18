@@ -1,15 +1,16 @@
 import { education, likes } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
+import SectionReveal from "./ui/SectionReveal";
 
 function About() {
   return (
     <section id="about" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-        <div>
+        <SectionReveal>
           <SectionHeading
             eyebrow="About Me"
             title="I like building software that earns its place in the real world."
-            description="My work leans toward backend systems, automation, and applications where reliability actually matters. I’m especially interested in efficient architectures, clean workflows, and products that make teams faster instead of adding more complexity."
+            description="My work leans toward backend systems, automation, and applications where reliability actually matters. I'm especially interested in efficient architectures, clean workflows, and products that make teams faster instead of adding more complexity."
           />
 
           <div className="mt-8 rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-glow">
@@ -32,9 +33,12 @@ function About() {
               ))}
             </div>
           </div>
-        </div>
+        </SectionReveal>
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-glow">
+        <SectionReveal
+          className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-glow"
+          delay={0.08}
+        >
           <p className="text-sm uppercase tracking-[0.24em] text-slate-400">What I Like Building</p>
           <div className="mt-6 grid gap-4">
             {likes.map((item) => (
@@ -46,7 +50,7 @@ function About() {
               </div>
             ))}
           </div>
-        </div>
+        </SectionReveal>
       </div>
     </section>
   );

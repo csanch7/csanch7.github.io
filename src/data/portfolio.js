@@ -7,7 +7,7 @@ export const profile = {
   resume: "./Christopher-Sanchez-Resume.pdf",
   tagline: "Computer Science Student | Backend Developer | Building Scalable Systems",
   heroDescription:
-    "I’m a computer science student focused on backend systems and real-world applications. I enjoy building scalable software, automating workflows, and solving problems that have measurable impact.",
+    "I'm a computer science student focused on backend systems and real-world applications. I enjoy building scalable software, automating workflows, and solving problems that have measurable impact.",
 };
 
 export const education = {
@@ -31,34 +31,43 @@ export const likes = [
 export const projects = [
   {
     title: "Shopify Automation System",
-    description:
-      "Built a Node.js webhook and MongoDB-backed automation pipeline for Shopify operations, connecting order flow, fulfillment signals, and accounting processes with minimal manual handling.",
+    problem:
+      "Store operations depended on repetitive manual handoffs across orders, fulfillment, and accounting.",
+    solution:
+      "Built a Node.js webhook and MongoDB-backed automation pipeline that connected Shopify order flow, fulfillment signals, and downstream accounting steps.",
     tech: ["Node.js", "MongoDB", "APIs"],
     impact: "Processed 700+ orders automatically and eliminated manual accounting workflows.",
     link: "https://github.com/csanch7",
   },
   {
     title: "Concurrent Order Matching Engine",
-    description:
-      "Architected a Java matching engine with price-time priority, synchronized queues, immutable DTOs, and real-time distribution patterns to keep concurrent operations consistent.",
+    problem:
+      "Matching buy and sell orders concurrently requires deterministic behavior under contention.",
+    solution:
+      "Architected a Java matching engine with price-time priority, synchronized queues, immutable DTOs, and real-time distribution patterns.",
     tech: ["Java", "Multithreading", "Systems Design"],
     impact: "Showcases concurrency, deterministic execution, and low-level systems thinking.",
     link: "https://github.com/csanch7",
   },
   {
     title: "Two-Client TCP Chat Server",
-    description:
-      "Implemented a C-based TCP chat server with sockets, POSIX threads, and a custom length-prefixed binary protocol for reliable concurrent client messaging.",
+    problem:
+      "Concurrent client messaging can break down quickly without a well-defined transport protocol.",
+    solution:
+      "Implemented a C-based TCP chat server with sockets, POSIX threads, and a custom length-prefixed binary protocol for reliable communication.",
     tech: ["C", "Sockets", "POSIX Threads"],
     impact: "Demonstrates protocol design, network programming, and concurrent client coordination.",
     link: "https://github.com/csanch7",
   },
   {
     title: "Scholarly Scholarship Management App",
-    description:
-      "Created a full-stack scholarship workflow app with React dashboards, AJAX status updates, filtering, and deadline-based sorting to make active applications easier to manage.",
+    problem:
+      "Managing multiple applications at once made deadlines, statuses, and required documents easy to miss.",
+    solution:
+      "Created a full-stack scholarship workflow app with React dashboards, AJAX updates, filtering, and deadline-based sorting.",
     tech: ["React", "Full-Stack", "AJAX"],
-    impact: "Built to manage 10+ active applications with clearer visibility, fewer missed deadlines, and smoother document organization.",
+    impact:
+      "Built to manage 10+ active applications with clearer visibility, fewer missed deadlines, and smoother document organization.",
     link: "https://github.com/csanch7",
   },
 ];
@@ -119,4 +128,34 @@ export const activities = [
   "Computer Science Society",
   "Society of Hispanic Professional Engineers",
   "Association of Latino Professionals for America",
+];
+
+export const videography = [
+  {
+    title: "Refined Barber Co",
+    description:
+      "Short-form brand content built around atmosphere, grooming detail, and a clean visual identity.",
+    href: "https://instagram.com/refinedbarberco/reel/DV7VMf7ABRz/",
+    embedUrl: "https://www.instagram.com/reel/DV7VMf7ABRz/embed/captioned/",
+    thumbnail: "./refined_thumbnail.jpg",
+    type: "Instagram Reel",
+  },
+  {
+    title: "Daybrk Tattoo Studio",
+    description:
+      "Moody, story-driven visuals shaped around texture, process, and distinctive studio branding.",
+    href: "https://www.instagram.com/p/DT0p-eADrTe/",
+    embedUrl: "https://www.instagram.com/p/DT0p-eADrTe/embed/captioned/",
+    thumbnail: "./daybrk_thumbnail.jpg",
+    type: "Instagram Post",
+  },
+  {
+    title: "Freelance Clients",
+    description:
+      "Flexible client work tailored to each brand's tone, audience, and overall visual direction.",
+    href: "https://www.instagram.com/p/DMvPn0fAtlD/?img_index=2",
+    embedUrl: "https://www.instagram.com/p/DMvPn0fAtlD/embed/captioned/",
+    thumbnail: "./freelance_thumbnail.jpg",
+    type: "Instagram Carousel",
+  },
 ];

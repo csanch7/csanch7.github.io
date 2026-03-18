@@ -1,13 +1,14 @@
 import { profile } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
+import SectionReveal from "./ui/SectionReveal";
 
 function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-      <div className="rounded-[2.25rem] border border-white/10 bg-white/5 p-8 shadow-glow md:p-10">
+      <SectionReveal className="rounded-[2.25rem] border border-white/10 bg-white/5 p-8 shadow-glow md:p-10">
         <SectionHeading
           eyebrow="Contact"
-          title="If you’re building something meaningful, I’d be glad to connect."
+          title="If you're building something meaningful, I'd be glad to connect."
           description="The easiest way to reach me is by email, and you can also find my work and background below."
         />
 
@@ -40,7 +41,7 @@ function Contact() {
             View Resume
           </a>
         </div>
-      </div>
+      </SectionReveal>
     </section>
   );
 }

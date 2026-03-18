@@ -14,6 +14,15 @@ export default {
       boxShadow: {
         glow: "0 0 0 1px rgba(88,225,193,0.12), 0 18px 60px rgba(0,0,0,0.35)",
       },
+      keyframes: {
+        "grid-float": {
+          "0%, 100%": { transform: "translate3d(-2%, 0, 0)" },
+          "50%": { transform: "translate3d(2%, 1.5%, 0)" },
+        },
+      },
+      animation: {
+        "grid-float": "grid-float 18s ease-in-out infinite",
+      },
       backgroundImage: {
         grid: "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
       },

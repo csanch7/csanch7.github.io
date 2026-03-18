@@ -1,5 +1,6 @@
 import { skills } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
+import SectionReveal from "./ui/SectionReveal";
 
 function Skills() {
   return (
@@ -10,10 +11,11 @@ function Skills() {
       />
 
       <div className="mt-14 grid gap-6 lg:grid-cols-2">
-        {Object.entries(skills).map(([group, items]) => (
-          <div
+        {Object.entries(skills).map(([group, items], index) => (
+          <SectionReveal
             key={group}
             className="rounded-[2rem] border border-white/10 bg-white/5 p-8"
+            delay={index * 0.06}
           >
             <h3 className="text-xl font-semibold text-white">{group}</h3>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -26,7 +28,7 @@ function Skills() {
                 </span>
               ))}
             </div>
-          </div>
+          </SectionReveal>
         ))}
       </div>
     </section>

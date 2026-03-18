@@ -1,5 +1,6 @@
 import { experience, experienceYears } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
+import SectionReveal from "./ui/SectionReveal";
 
 function Experience() {
   return (
@@ -10,7 +11,7 @@ function Experience() {
         description="I care about technical quality, but I also pay attention to whether the work actually changes something for the business, team, or customer."
       />
 
-      <div className="mt-14 rounded-[2.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6 shadow-glow md:p-8">
+      <SectionReveal className="mt-14 rounded-[2.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6 shadow-glow md:p-8">
         {experienceYears.map((group) => {
           const roles = experience.filter((item) => item.year === group.year);
 
@@ -70,7 +71,7 @@ function Experience() {
             </div>
           );
         })}
-      </div>
+      </SectionReveal>
     </section>
   );
 }

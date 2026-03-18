@@ -15,8 +15,11 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #070b14;
+  background:
+    radial-gradient(circle at top, rgba(88, 225, 193, 0.08), transparent 24%),
+    linear-gradient(180deg, #070b14 0%, #050810 100%);
   font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -28,19 +31,18 @@ a {
   box-sizing: border-box;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-::selection {
+*::selection {
   background: rgba(88, 225, 193, 0.25);
   color: #fff;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button {
+    cursor: none;
+  }
 }
