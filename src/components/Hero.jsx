@@ -14,7 +14,7 @@ function Hero() {
           </div>
 
           <h1 className="font-display mt-8 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Building the backend systems that make ambitious ideas actually scale.
+            Christopher Sanchez
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
@@ -58,9 +58,7 @@ function Hero() {
                   <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Now Focused On</p>
                   <p className="mt-2 text-2xl font-semibold text-white">Scalable backend systems</p>
                 </div>
-                <div className="rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                  Available
-                </div>
+
               </div>
 
               <div className="grid gap-4 py-6">
