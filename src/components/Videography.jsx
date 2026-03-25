@@ -1,16 +1,20 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { videography } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
 import { fadeUp, stagger, viewportOnce } from "./ui/motion";
 
 function Videography() {
   const [activeVideo, setActiveVideo] = useState(null);
+  const closeButtonRef = useRef(null);
+  const modalTitleId = useId();
 
   useEffect(() => {
     if (!activeVideo) {
       return undefined;
     }
+
+    const previouslyFocusedElement = document.activeElement;
 
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -21,9 +25,20 @@ function Videography() {
     window.addEventListener("keydown", onKeyDown);
     document.body.style.overflow = "hidden";
 
+    const timeoutId = window.setTimeout(() => {
+      closeButtonRef.current?.focus();
+    }, 0);
+
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
+      window.clearTimeout(timeoutId);
+      if (
+        previouslyFocusedElement &&
+        typeof previouslyFocusedElement.focus === "function"
+      ) {
+        previouslyFocusedElement.focus();
+      }
     };
   }, [activeVideo]);
 
@@ -164,6 +179,10 @@ function Videography() {
           <motion.div
             key="video-modal"
             className="fixed inset-0 z-[75] flex items-center justify-center bg-slate-950/75 px-4 py-8 backdrop-blur-md"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={modalTitleId}
+            tabIndex={-1}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -182,13 +201,14 @@ function Videography() {
                   <p className="text-[11px] uppercase tracking-[0.28em] text-slate-400">
                     Instagram Embed
                   </p>
-                  <h3 className="mt-2 text-xl font-semibold text-white">
+                  <h3 id={modalTitleId} className="mt-2 text-xl font-semibold text-white">
                     {activeVideo.title}
                   </h3>
                 </div>
                 <button
                   type="button"
                   onClick={() => setActiveVideo(null)}
+                  ref={closeButtonRef}
                   className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white transition hover:border-white/20 hover:bg-white/10"
                 >
                   Close

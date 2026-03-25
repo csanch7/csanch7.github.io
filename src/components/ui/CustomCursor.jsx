@@ -1,9 +1,10 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 
 function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
 
@@ -12,7 +13,8 @@ function CustomCursor() {
 
   useEffect(() => {
     const media = window.matchMedia("(pointer: fine)");
-    const updateEnabled = () => setEnabled(media.matches);
+    const updateEnabled = () =>
+      setEnabled(media.matches && !prefersReducedMotion);
     updateEnabled();
 
     const move = (event) => {
@@ -33,7 +35,7 @@ function CustomCursor() {
       window.removeEventListener("pointermove", move);
       window.removeEventListener("mouseover", handleOver);
     };
-  }, [x, y]);
+  }, [prefersReducedMotion, x, y]);
 
   if (!enabled) {
     return null;

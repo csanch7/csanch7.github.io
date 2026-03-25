@@ -1,11 +1,13 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { profile } from "../data/portfolio";
 import { fadeUp, stagger } from "./ui/motion";
 
 function Hero() {
   const heroRef = useRef(null);
   const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
+  const prefersReducedMotion = useReducedMotion();
+  const [canTilt, setCanTilt] = useState(false);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -13,6 +15,16 @@ function Hero() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.3]);
+
+  useEffect(() => {
+    const media = window.matchMedia("(pointer: fine)");
+    const update = () => {
+      setCanTilt(media.matches && !prefersReducedMotion);
+    };
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, [prefersReducedMotion]);
 
   const handleMove = (event) => {
     const bounds = event.currentTarget.getBoundingClientRect();
@@ -26,7 +38,10 @@ function Hero() {
       ref={heroRef}
       id="hero"
       className="mx-auto flex min-h-[calc(100vh-80px)] max-w-7xl items-center px-6 py-20 lg:px-8"
-      style={{ y, opacity }}
+      style={{
+        y: prefersReducedMotion ? 0 : y,
+        opacity: prefersReducedMotion ? 1 : opacity,
+      }}
     >
       <motion.div
         className="grid w-full gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center"
@@ -107,9 +122,11 @@ function Hero() {
         <motion.div variants={fadeUp}>
           <motion.div
             className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-glow"
-            onMouseMove={handleMove}
-            onMouseLeave={() => setTilt({ rotateX: 0, rotateY: 0 })}
-            animate={tilt}
+            onMouseMove={canTilt ? handleMove : undefined}
+            onMouseLeave={
+              canTilt ? () => setTilt({ rotateX: 0, rotateY: 0 }) : undefined
+            }
+            animate={canTilt ? tilt : { rotateX: 0, rotateY: 0 }}
             transition={{ type: "spring", stiffness: 180, damping: 18, mass: 0.8 }}
             style={{ transformStyle: "preserve-3d" }}
           >
